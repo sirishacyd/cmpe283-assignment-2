@@ -84,3 +84,8 @@ ssh_pwauth: True
 ``` 
 - Run `cloud-localds user-data.img user-data`
 - Launch an VM using `sudo qemu-system-x86_64 -enable-kvm -hda bionic-server-cloudimg-amd64.img -drive "file=user-data.img,format=raw" -m 512 -curses -nographic`
+- Login to VM using username `ubuntu` and password `newpass`
+
+### Step 6 
+- Testing CPUID on the VM and Observing Behavior on the Host Modified Kernel for Hypercall
+- Install required items on host vm for observing behavior of cpuid hypercall `sudo apt-get update` and `sudo apt-get install cpuid`
