@@ -1473,7 +1473,7 @@ EXPORT_SYMBOL_GPL(kvm_cpuid);
 u32 total_exits;
 EXPORT_SYMBOL(total_exits);
 
-u64 total_time_exit;
+u64 total_time_exits;
 EXPORT_SYMBOL(total_time_exits);
 
 int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
