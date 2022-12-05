@@ -27,7 +27,7 @@ gcloud compute instances create cmpe283-assignment1 --project=valued-network-366
     ![](screenshots/ssh_login_jayanth.png)
 
 ### Step 2 
-- Installed required dependencies to perform the assignment that loads a new module into kernel and Launch a New VM on Kernel we are building.
+- Installed required dependencies to perform the assignment that can help to build kernel from source code with changes for our assignment and Launch a New VM on Kernel we are building with changes for a hyper call.
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -39,4 +39,23 @@ sudo apt-get install cloud-image-utils
 ![](screenshots/install_dependencies.png)
 
 ### Step 3
-
+- Download and Build `linux-6.0.7` source code
+```
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.0.7.tar.xz
+tar xvf linux-6.0.7.tar.xz
+cd linux-6.0.7
+cp -v /boot/config-$(uname -r) .config
+```
+- Note : Fix `No rule to make target 'debian/canonical-certs.pem'` by the following commands
+  - `scripts/config --disable SYSTEM_TRUSTED_KEYS`
+  - `scripts/config --disable SYSTEM_REVOCATION_KEYS`
+- Build the kernel source code using the following commands
+```
+sudo make -j <number_of_cpu_cores> modules
+sudo make -j <number_of_cpu_cores>
+sudo make -j <number_of_cpu_cores> modules_install
+sudo make -j <>install
+```
+- After `make -j <number_of_cores> install the bootloader is automatically updated. 
+- We can ensure that the kernel has been updated by the `sudo reboot` and `uname -mrs`.
+  - Output should be `Linux 6.0.7 x86_64`
