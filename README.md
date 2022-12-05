@@ -56,9 +56,14 @@ sudo make -j <number_of_cpu_cores>
 sudo make -j <number_of_cpu_cores> modules_install
 sudo make -j <number_of_cpu_cores>install
 ```
-- After `make -j <number_of_cores> install` the bootloader is automatically updated. 
+![](screenshots/make_modules_install.png) 
+- After `make -j <number_of_cores> install` the bootloader is automatically updated.
+![](screenshots/make_install.png)
+
 - We can ensure that the kernel has been updated by the `sudo reboot` and `uname -mrs`.
   - Output should be `Linux 6.0.7 x86_64`
+![](screenshots/reboot.png)
+![](screenshots/uname_reboot.png)
 
 ### Step 4
 - Make Code Changes to Implement Functionality for leaf nodes 0x4FFFFFFC and 0x4FFFFFFD and rebuild kernel
@@ -89,3 +94,9 @@ ssh_pwauth: True
 ### Step 6 
 - Testing CPUID on the VM and Observing Behavior on the Host Modified Kernel for Hypercall
 - Install required items on host vm for observing behavior of cpuid hypercall `sudo apt-get update` and `sudo apt-get install cpuid`
+- Testing for `cpuid -l 0x4FFFFFFC`
+![](screenshots/cpuid_ffc.png)
+![](screenshots/dmesg_ffc.png) 
+- Testing for `cpuid -l 0x4FFFFFFD`
+![](screenshots/cpuid_ffd.png)
+![](screenshots/dmesg_ffd.png) 
