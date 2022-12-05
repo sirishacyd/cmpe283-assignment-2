@@ -6300,6 +6300,8 @@ static int __vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 	union vmx_exit_reason exit_reason = vmx->exit_reason;
 	u32 vectoring_info = vmx->idt_vectoring_info;
 	u16 exit_handler_index;
+	extern u32 total_exits;
+	total_exits++;
 
 	/*
 	 * Flush logged GPAs PML buffer, this will make dirty_bitmap more
@@ -6475,7 +6477,12 @@ unexpected_vmexit:
 
 static int vmx_handle_exit(struct kvm_vcpu *vcpu, fastpath_t exit_fastpath)
 {
+	
+	u64 exit_start, diff_exit;
+	extern u64 total_time_exit;
+	exit_start = rdtsc();
 	int ret = __vmx_handle_exit(vcpu, exit_fastpath);
+	diff_exit  = rdtsc() - exit_start;
 
 	/*
 	 * Exit to user space when bus lock detected to inform that there is
