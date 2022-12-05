@@ -54,8 +54,33 @@ cp -v /boot/config-$(uname -r) .config
 sudo make -j <number_of_cpu_cores> modules
 sudo make -j <number_of_cpu_cores>
 sudo make -j <number_of_cpu_cores> modules_install
-sudo make -j <>install
+sudo make -j <number_of_cpu_cores>install
 ```
-- After `make -j <number_of_cores> install the bootloader is automatically updated. 
+- After `make -j <number_of_cores> install` the bootloader is automatically updated. 
 - We can ensure that the kernel has been updated by the `sudo reboot` and `uname -mrs`.
   - Output should be `Linux 6.0.7 x86_64`
+
+### Step 4
+- Make Code Changes to Implement Functionality for leaf nodes 0x4FFFFFFC and 0x4FFFFFFD and rebuild kernel
+- vmx.c: [`linux-6.0.7/arch/x86/kvm/vmx/vmx.c`](arch/x86/kvm/vmx/vmx.c)
+- cpuid.c: [`linux-6.0.7/arch/x86/kvm/cpuid.c`](arch/x86/kvm/cpuid.c)
+- Rebuild change modules using `make -j <number_of_cores> modules` 
+- Install New Modules in to kernel using `make -j <number_of_cores> INSTALL_MOD_STRIP=1 modules_install`
+- Reload kvm and kvm_intel modules
+  - `sudo rmmod kvm_intel`
+  - `sudo rmmod kvm`
+  - `sudo modprobe kvm_intel`
+  - `sudo modprobe kvm`
+
+### Step 5
+- Launch an instance on host kernel using the following commands and setup
+- Get Image for launching VM using `wget https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img` 
+- Create `user-data` file with following contents.
+```
+#cloud-config
+password: newpass #new password here
+chpasswd: { expire: False }
+ssh_pwauth: True
+``` 
+- Run `cloud-localds user-data.img user-data`
+- Launch an VM using `sudo qemu-system-x86_64 -enable-kvm -hda bionic-server-cloudimg-amd64.img -drive "file=user-data.img,format=raw" -m 512 -curses -nographic`
