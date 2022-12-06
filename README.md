@@ -18,6 +18,15 @@
   - created test_assignment.c to test the changed hypercall `cpuid` and compiled it.
   - committed required screenshots to the gitbub and contirbuted to Readme.md
 - *Jayanth Vishal Reddy Godi (016720080)*
+  - Enabled SSH Authentication on VM launched on google cloud using ssh keys.
+  - Installed required dependencies on launched VM for building kernel and launching virtual machine on hypervisor.
+  - Researched about code changes that are required to implement cpuid `0x4FFFFFFC` and `0x4FFFFFFD` and made code changes in cpuid.c
+  - Upgraded the ubuntu OS to latest using apt-get update and apt-get upgrade
+  - Researched about ways to launch vm on kernel. Tried out virt-manage and qemu-system and decided to go ahed with qemu-system
+  - Reloaded new modules in the kernel for `kvm` and `kvm_intel`
+  - tested cpuid functionality using `cpuid -l 0x4FFFFFFC` and `cpuid -l 0x4FFFFFFD` and documented output
+  - committed `dmesg` output to the gitbub and contirbuted to Readme.md
+
 #### 2. Describe in detail the steps you used to complete the assignment. Consider your reader to be someone  skilled in software development but otherwise unfamiliar with the assignment. Good answers to this  question will be recipes that someone can follow to reproduce your development steps. Note: I may decide to follow these instructions for random assignments, so you should make sure  they are accurate.
 
 ### Step 1 
