@@ -10,6 +10,13 @@
     
 #### 1. For each member in your team, provide 1 paragraph detailing what parts of the lab that member  implemented / researched. (You may skip this question if you are doing the lab by yourself).
 - *Sirisha Polisetty(016012477)*
+  - Created VM on google cloud compute engine using cloudshell.
+  - Build the kernel and installed new modules and reloaded the kernel.
+  - Researched about code changes that are required to implement cpuid `0x4FFFFFFC` and `0x4FFFFFFD` and made code changes in vmx.c
+  - complied new changed code and installed modules usin `rmmod` and `modprobe` to vm.
+  - Launched the VM on hypervisor using qemu-system.
+  - created test_assignment.c to test the changed hypercall `cpuid` and compiled it.
+  - committed required screenshots to the gitbub and contirbuted to Readme.md
 - *Jayanth Vishal Reddy Godi (016720080)*
 #### 2. Describe in detail the steps you used to complete the assignment. Consider your reader to be someone  skilled in software development but otherwise unfamiliar with the assignment. Good answers to this  question will be recipes that someone can follow to reproduce your development steps. Note: I may decide to follow these instructions for random assignments, so you should make sure  they are accurate.
 
