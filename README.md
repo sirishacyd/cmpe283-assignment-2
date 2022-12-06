@@ -1,5 +1,13 @@
 # CMPE283 : Virtualization 
 # Assignment 2:  Instrumentation via hypercall
+- Your assignment is to modify the CPUID emulation code in KVM to report back additional information when special CPUID leaf nodes are requested.
+  - For CPUID leaf node %eax=0x4FFFFFFC:
+    - Return the total number of exits (all types) in %eax
+  - For CPUID leaf node %eax=0x4FFFFFFD:
+    - Return the high 32 bits of the total time spent processing all exits in %ebx
+    - Return the low 32 bits of the total time spent processing all exits in %ecx
+        - %ebx and %ecx return values are measured in processor cycles, across all VCPUs
+    
 #### 1. For each member in your team, provide 1 paragraph detailing what parts of the lab that member  implemented / researched. (You may skip this question if you are doing the lab by yourself).
 - *Sirisha Polisetty(016012477)*
 - *Jayanth Vishal Reddy Godi (016720080)*
