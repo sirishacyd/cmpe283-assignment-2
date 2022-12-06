@@ -13,7 +13,7 @@
   - Created VM on google cloud compute engine using cloudshell.
   - Build the kernel and installed new modules and reloaded the kernel.
   - Researched about code changes that are required to implement cpuid `0x4FFFFFFC` and `0x4FFFFFFD` and made code changes in vmx.c
-  - complied new changed code and installed modules usin `rmmod` and `modprobe` to vm.
+  - complied new changed code and installed modules using `rmmod` and `modprobe` to vm.
   - Launched the VM on hypervisor using qemu-system.
   - Created test_assignment.c to test the changed hypercall `cpuid` and compiled it.
   - Tested the new cpuid hypercall using compiled test code `./test_assignment2` and documented compiled program and `dmesg` output.
