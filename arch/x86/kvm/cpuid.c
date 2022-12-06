@@ -1487,14 +1487,14 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 	ecx = kvm_rcx_read(vcpu);
 	if (eax == 0x4ffffffc) {
 		eax = total_exits;
-		printk(KERN_INFO "CPUID(0x4FFFFFFC)\n\tTotal Exits: %u", eax);
+		printk(KERN_INFO "CPUID(0x4FFFFFFC), Total Exits = %u", eax);
 	} 
 	else if (eax == 0x4ffffffd) {
 		u64 calc_time;
 		calc_time = total_time_exits;
 		ebx = (calc_time >> 32);
 		ecx = (calc_time & 0xffffffff);
-		printk(KERN_INFO "CPUID(0x4FFFFFFD)\n\tTotal Time in vmm: %lld cycles\n\tEBX=%u & ECX=%u", total_time_exits, ebx, ecx);	
+		printk(KERN_INFO "CPUID(0x4FFFFFFD), Total Time in vmm: %lld cycles, EBX=%u & ECX=%u", calc_time, ebx, ecx);	
 	}
 	else {
 		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, false);

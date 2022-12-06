@@ -88,7 +88,7 @@ chpasswd: { expire: False }
 ssh_pwauth: True
 ``` 
 - Run `cloud-localds user-data.img user-data`
-- Launch an VM using `sudo qemu-system-x86_64 -enable-kvm -hda bionic-server-cloudimg-amd64.img -drive "file=user-data.img,format=raw" -m 512 -curses -nographic`
+- Launch an VM using `sudo qemu-system-x86_64 -enable-kvm -hda bionic-server-cloudimg-amd64.img -drive "file=user-data.img,format=raw" -m 512 -curses -nographic --accel`
 - Login to VM using username `ubuntu` and password `newpass`
 ![](screenshots/vm_launched.png)
 ### Step 6 
