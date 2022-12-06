@@ -23,7 +23,7 @@ __cpuid(unsigned int *eax, unsigned int *ebx, unsigned int *ecx,
 int
 main(int argc, char **argv)
 {
-	unsigned int eax, ebx, ecx, edx;
+	  unsigned int eax, ebx, ecx, edx;
     unsigned long long time;
 
     eax = 0x4FFFFFFC;
@@ -33,5 +33,5 @@ main(int argc, char **argv)
     eax = 0x4FFFFFFD;
     __cpuid(&eax, &ebx, &ecx, &edx);
     time = (unsigned long long) ebx << 32 | ecx;
-    printf("CPUID(0x4FFFFFFD), total time in vmm : %llu cycles, ebx=%u, ecx=%u, \n",time, ebx, ecx);
+    printf("CPUID(0x4FFFFFFD), total time in vmm : %llu cycles, ebx=%u, ecx=%u \n",time, ebx, ecx);
 }

@@ -96,7 +96,19 @@ ssh_pwauth: True
 - Install required items on host vm for observing behavior of cpuid hypercall `sudo apt-get update` and `sudo apt-get install cpuid`
 - Testing for `cpuid -l 0x4FFFFFFC`
 ![](screenshots/cpuid_ffc.png)
+- dmesg output for `cpuid -l 0x4FFFFFFC`
 ![](screenshots/dmesg_ffc.png) 
 - Testing for `cpuid -l 0x4FFFFFFD`
 ![](screenshots/cpuid_ffd.png)
+- dmesg output for `cpuid -l 0x4FFFFFFD`
 ![](screenshots/dmesg_ffd.png) 
+
+### Step 7
+- Testing using Test Script created for assignment 2
+- Created usermodule program [test_assignment2.c](./test_assignment2.c) on Launched VM
+- compile the c program using `gcc -o test_assignment2 test_assignment2.c`
+- execute the program using compiled code `./test_assignment2` on launched VM
+- execute the program using compiled code `./test_assignment2`
+![](screenshots/test_script_output.png) 
+- check `sudo dmesg` output to observe the kernel logs on kernel machine
+![](screenshots/dmesg_test_script.png) 
