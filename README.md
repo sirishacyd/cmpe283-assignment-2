@@ -130,7 +130,7 @@ ssh_pwauth: True
 
 ### Step 7
 - Testing using Test Script created for assignment 2
-- Created usermodule program [test_assignment2.c](./test_assignment2.c) on Launched VM
+- Created usermode program [test_assignment2.c](./test_assignment2.c) on Launched VM
 - compile the c program using `gcc -o test_assignment2 test_assignment2.c`
 - execute the program using compiled code `./test_assignment2` on launched VM
 - execute the program using compiled code `./test_assignment2`
