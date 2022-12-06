@@ -26,7 +26,7 @@
   - Researched about ways to launch vm on kernel. Tried out virt-manager and qemu-system and decided to go ahed with qemu-system
   - Reloaded new modules in the kernel for `kvm` and `kvm_intel`
   - tested cpuid functionality using `cpuid -l 0x4FFFFFFC` and `cpuid -l 0x4FFFFFFD` and documented output
-  - committed `dmesg` output to the gitbub and contirbuted to Readme.md
+  - committed `dmesg` output to the github and contirbuted to Readme.md
 
 #### 2. Describe in detail the steps you used to complete the assignment. Consider your reader to be someone  skilled in software development but otherwise unfamiliar with the assignment. Good answers to this  question will be recipes that someone can follow to reproduce your development steps. Note: I may decide to follow these instructions for random assignments, so you should make sure  they are accurate.
 
