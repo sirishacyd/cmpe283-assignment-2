@@ -23,7 +23,7 @@
   - Installed required dependencies on launched VM for building kernel and launching virtual machine on hypervisor.
   - Researched about code changes that are required to implement cpuid `0x4FFFFFFC` and `0x4FFFFFFD` and made code changes in cpuid.c
   - Upgraded the ubuntu OS to latest using apt-get update and apt-get upgrade
-  - Researched about ways to launch vm on kernel. Tried out virt-manage and qemu-system and decided to go ahed with qemu-system
+  - Researched about ways to launch vm on kernel. Tried out virt-manager and qemu-system and decided to go ahed with qemu-system
   - Reloaded new modules in the kernel for `kvm` and `kvm_intel`
   - tested cpuid functionality using `cpuid -l 0x4FFFFFFC` and `cpuid -l 0x4FFFFFFD` and documented output
   - committed `dmesg` output to the gitbub and contirbuted to Readme.md
